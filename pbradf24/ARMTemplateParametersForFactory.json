@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "pbradf24"
+		},
+		"ls_azureblob_l1_connectionString": {
+			"value": ""
+		},
+		"ls_azuregen2_l1_accountKey": {
+			"value": ""
+		},
+		"ls_gen2_source_accountKey": {
+			"value": ""
+		},
+		"ls_gen2_target_accountKey": {
+			"value": ""
+		},
+		"sql_link_source_password": {
+			"value": ""
+		},
+		"ls_azuregen2_l1_properties_typeProperties_url": {
+			"value": "https://pbrgen2.dfs.core.windows.net/"
+		},
+		"ls_gen2_source_properties_typeProperties_url": {
+			"value": "https://pbrgen2.dfs.core.windows.net/"
+		},
+		"ls_gen2_target_properties_typeProperties_url": {
+			"value": "https://pbrgen2.dfs.core.windows.net/"
+		},
+		"sql_link_source_properties_typeProperties_server": {
+			"value": "serverpbr.database.windows.net"
+		},
+		"sql_link_source_properties_typeProperties_database": {
+			"value": "sqlpbr"
+		},
+		"sql_link_source_properties_typeProperties_userName": {
+			"value": "adminbhaskar"
+		}
+	}
+}

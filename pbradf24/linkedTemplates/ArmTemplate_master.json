@@ -1,0 +1,119 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "pbradf24"
+		},
+		"ls_azureblob_l1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_azureblob_l1'"
+		},
+		"ls_azuregen2_l1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_azuregen2_l1'"
+		},
+		"ls_gen2_source_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_gen2_source'"
+		},
+		"ls_gen2_target_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_gen2_target'"
+		},
+		"sql_link_source_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'sql_link_source'"
+		},
+		"ls_azuregen2_l1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://pbrgen2.dfs.core.windows.net/"
+		},
+		"ls_gen2_source_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://pbrgen2.dfs.core.windows.net/"
+		},
+		"ls_gen2_target_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://pbrgen2.dfs.core.windows.net/"
+		},
+		"sql_link_source_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "serverpbr.database.windows.net"
+		},
+		"sql_link_source_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sqlpbr"
+		},
+		"sql_link_source_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminbhaskar"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "pbradf24_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_azureblob_l1_connectionString": {
+						"value": "[parameters('ls_azureblob_l1_connectionString')]"
+					},
+					"ls_azuregen2_l1_accountKey": {
+						"value": "[parameters('ls_azuregen2_l1_accountKey')]"
+					},
+					"ls_gen2_source_accountKey": {
+						"value": "[parameters('ls_gen2_source_accountKey')]"
+					},
+					"ls_gen2_target_accountKey": {
+						"value": "[parameters('ls_gen2_target_accountKey')]"
+					},
+					"sql_link_source_password": {
+						"value": "[parameters('sql_link_source_password')]"
+					},
+					"ls_azuregen2_l1_properties_typeProperties_url": {
+						"value": "[parameters('ls_azuregen2_l1_properties_typeProperties_url')]"
+					},
+					"ls_gen2_source_properties_typeProperties_url": {
+						"value": "[parameters('ls_gen2_source_properties_typeProperties_url')]"
+					},
+					"ls_gen2_target_properties_typeProperties_url": {
+						"value": "[parameters('ls_gen2_target_properties_typeProperties_url')]"
+					},
+					"sql_link_source_properties_typeProperties_server": {
+						"value": "[parameters('sql_link_source_properties_typeProperties_server')]"
+					},
+					"sql_link_source_properties_typeProperties_database": {
+						"value": "[parameters('sql_link_source_properties_typeProperties_database')]"
+					},
+					"sql_link_source_properties_typeProperties_userName": {
+						"value": "[parameters('sql_link_source_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
