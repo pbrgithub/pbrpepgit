@@ -1,0 +1,9 @@
+{
+	"name": "pbradf24",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0dc9f41c-cd49-49a6-97ab-f3605574e37e",
+		"tenantId": "0fd5d8d2-af16-4984-898b-63aebf755c71"
+	}
+}
